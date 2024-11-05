@@ -1,0 +1,35 @@
+{
+  "name": "@enquiet/password-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node_modules/.bin/vite",
+    "build": "node_modules/.bin/vite build",
+    "preview": "node_modules/.bin/vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "vite": "^5.4.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Enquiet/password-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/Enquiet/password-generator/issues"
+  },
+  "homepage": "https://github.com/Enquiet/password-generator#readme",
+  "main": "dist/password-generator.js",
+  "module": "dist/password-generatorjs",
+  "exports": {
+    ".": {
+      "import": "./dist/password-generator.mjs",
+      "require": "./dist/password-generator.js"
+    }
+  },
+  "files": [
+    "dist"
+  ]
+}
