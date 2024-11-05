@@ -1,6 +1,6 @@
 {
   "name": "@enquiet/password-generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "node_modules/.bin/vite",
@@ -34,12 +34,13 @@
   "module": "dist/password-generator.js",
   "exports": {
     ".": {
-      "import": "./dist/password-generator.mjs",
-      "require": "./dist/password-generator.js"
+      "import": "./dist/password-generator.js",
+      "require": "./dist/password-generator.umd.js"
     }
   },
   "files": [
-    "dist"
+    "/dist",
+    "/index.js"
   ],
   "keywords": [
     "ts",
