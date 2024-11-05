@@ -9,6 +9,7 @@ export default {
         },
         rollupOptions: {
             external: ['passwordGenerator.ts']
-        }
+        },
+        emptyOutDir: false
     }
 }
