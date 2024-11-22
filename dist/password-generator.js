@@ -1,23 +1,25 @@
-const u = (t) => Math.floor(Math.random() * t), h = (t) => {
-  const e = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", s = "abcdefghijklmnopqrstuvwxyz", r = "0123456789", n = "!@#$%^&*()_+[]{}|;:,.<>?", o = e + s + r + n;
-  let a = "";
-  for (let c = 0; c < t; c++) {
-    const l = u(o.length);
-    a += o[l];
+const u = (s) => Math.floor(Math.random() * s), h = (s) => {
+  const e = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", t = "abcdefghijklmnopqrstuvwxyz", r = "0123456789", n = "!@#$%?&", a = e + t + r + n;
+  let o = "";
+  for (let c = 0; c < s; c++) {
+    const l = u(a.length);
+    o += a[l];
   }
-  return a;
-}, d = (t) => {
-  const e = /[A-Z]/.test(t), s = /[a-z]/.test(t), r = /\d/.test(t), n = /[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(t);
-  return e + s + r + n;
-}, i = (t, e) => {
-  const s = [];
-  for (let r = 0; r < t; r++)
-    s.push(h(e));
-  return s;
-}, p = (t) => t.reduce((e, s) => d(s) > d(e) ? s : e), w = (t = 1e6, e = 18) => {
-  const s = i(t, e);
-  return p(s);
+  return o;
+}, d = (s) => {
+  const e = /[A-Z]/.test(s), t = /[a-z]/.test(s), r = /\d/.test(s), n = /[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(s);
+  return e + t + r + n;
+}, p = (s, e) => {
+  const t = [];
+  for (let r = 0; r < s; r++)
+    t.push(h(e));
+  return t;
+}, i = (s) => s.reduce((e, t) => d(t) > d(e) ? t : e), w = (s = 1e6, e = 18) => {
+  const t = p(s, e);
+  return i(t);
+}, P = {
+  initPassword: w
 };
 export {
-  w as initPassword
+  P as default
 };
