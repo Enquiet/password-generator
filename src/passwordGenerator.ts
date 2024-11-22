@@ -5,7 +5,7 @@ const  generatePassword = (length: number): string => {
   const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const numbers = '0123456789'
-  const specialCharacters = '!@#$%^&*()_+[]{}|;:,.<>?'
+  const specialCharacters = '!@#$%?&'
   const allCharacters = uppercaseLetters + lowercaseLetters + numbers + specialCharacters
 
   let password = ''
@@ -24,9 +24,6 @@ const evaluatePassword = (password: string): number => {
   return hasUppercase + hasLowercase + hasNumber + hasSpecialChar // Возвращаем сумму выполненных критериев
 }
 
-
-
-
 const  generateMultiplePasswords = (count: number, length: number): string[] =>  {
   const passwords = []
   for (let i = 0; i < count; i++) {
@@ -41,7 +38,11 @@ const  findBestPassword = (passwords: string[]): string => {
   })
 }
 
-export const initPassword = (passwordCount: number = 1000000, passwordLength: number = 18) => {
+const initPassword = (passwordCount: number = 1000000, passwordLength: number = 18) => {
   const generatedPasswords = generateMultiplePasswords(passwordCount, passwordLength)
   return findBestPassword(generatedPasswords)
+}
+
+export default {
+  initPassword
 }
