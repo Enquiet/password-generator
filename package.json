@@ -1,6 +1,6 @@
 {
   "name": "@enquiet/password-generator",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "node_modules/.bin/vite",
@@ -29,6 +29,7 @@
   "bugs": {
     "url": "https://github.com/Enquiet/password-generator/issues"
   },
+  "license": "MIT",
   "homepage": "https://github.com/Enquiet/password-generator#readme",
   "main": "dist/password-generator.js",
   "module": "dist/password-generator.js",
