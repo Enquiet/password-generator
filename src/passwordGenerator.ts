@@ -1,26 +1,25 @@
-const random = (number: number):  number => {
-  return Math.floor(Math.random() * number)
-}
 const  generatePassword = (length: number): string => {
   const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const numbers = '0123456789'
-  const specialCharacters = '!@#$%?&'
+  const specialCharacters = '!@#$%^&*()_+-=[]{};"|,.<>/?'
   const allCharacters = uppercaseLetters + lowercaseLetters + numbers + specialCharacters
 
   let password = ''
+  const array = new Uint32Array(length)
+  window.crypto.getRandomValues(array)
   for (let i = 0; i < length; i++) {
-    const randomIndex = random(allCharacters.length)
+    const randomIndex = array[i] % allCharacters.length
     password += allCharacters[randomIndex]
   }
   return password
 }
 
 const evaluatePassword = (password: string): number => {
-  const hasUppercase = /[A-Z]/.test(password) as unknown as number
-  const hasLowercase = /[a-z]/.test(password) as unknown as number
-  const hasNumber = /\d/.test(password) as unknown as number
-  const hasSpecialChar = /[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password) as unknown as number
+  const hasUppercase = /[A-Z]/.test(password)  ? 1 : 0
+  const hasLowercase = /[a-z]/.test(password) ? 1 : 0
+  const hasNumber = /\d/.test(password) ? 1 : 0
+  const hasSpecialChar = /[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password) ? 1 : 0
   return hasUppercase + hasLowercase + hasNumber + hasSpecialChar // Возвращаем сумму выполненных критериев
 }
 
